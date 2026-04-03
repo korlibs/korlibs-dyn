@@ -145,24 +145,36 @@ class DynCommonTest {
 	fun testOrNullConversions() {
 		assertEquals(true, true.dyn.toBoolOrNull())
 		assertEquals(false, "invalid".dyn.toBoolOrNull())
+		assertEquals(false, 0.dyn.toBoolOrNull())
+		assertEquals(true, 1.dyn.toBoolOrNull())
+		assertEquals(null, Any().dyn.toBoolOrNull())
 		assertEquals(5, "5".dyn.toIntOrNull())
 		assertEquals(null, "abc".dyn.toIntOrNull())
+		assertEquals(null, Any().dyn.toIntOrNull())
 		assertEquals(5L, "5".dyn.toLongOrNull())
 		assertEquals(null, "abc".dyn.toLongOrNull())
+		assertEquals(null, Any().dyn.toLongOrNull())
 		assertEquals(5.0, "5.0".dyn.toDoubleOrNull())
 		assertEquals(null, "abc".dyn.toDoubleOrNull())
+		assertEquals(null, Any().dyn.toDoubleOrNull())
 	}
 
 	@Test
 	fun testDefaultConversions() {
 		assertEquals(5, "5".dyn.toIntDefault())
 		assertEquals(10, "abc".dyn.toIntDefault(10))
+		assertEquals(10, Any().dyn.toIntDefault(10))
 		assertEquals(5L, "5".dyn.toLongDefault())
 		assertEquals(10L, "abc".dyn.toLongDefault(10L))
+		assertEquals(10L, Any().dyn.toLongDefault(10L))
 		assertEquals(5f, "5".dyn.toFloatDefault())
+		assertEquals(5f, "5.0".dyn.toFloatDefault(42f))
 		assertEquals(10f, "abc".dyn.toFloatDefault(10f))
-		assertEquals(5.0, "5".dyn.toDoubleDefault())
-		assertEquals(10.0, "abc".dyn.toDoubleDefault(10.0))
+		assertEquals(10f, Any().dyn.toFloatDefault(10f))
+		assertEquals(25.0, "25".dyn.toDoubleDefault())
+		assertEquals(26.0, "26.0".dyn.toDoubleDefault())
+		assertEquals(27.0, "abc".dyn.toDoubleDefault(27.0))
+		assertEquals(28.0, Any().dyn.toDoubleDefault(28.0))
 	}
 
 	@Test
