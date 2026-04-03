@@ -298,7 +298,6 @@ inline class Dyn(val value: Any?) : Comparable<Dyn> {
         is Number -> value
         is Boolean -> if (value) 1 else 0
         is String -> value.toIntSafe() ?: value.toDoubleSafe() ?: 0
-        //else -> it.toString().toNumber()
         else -> value.toString().toNumber()
     }
 
@@ -369,13 +368,13 @@ inline class Dyn(val value: Any?) : Comparable<Dyn> {
 
     fun toFloatDefault(default: Float = 0f): Float = when (value) {
         is Number -> toFloat()
-        is String -> toFloat()
+        is String -> value.toFloatSafe() ?: default
         else -> default
     }
 
     fun toDoubleDefault(default: Double = 0.0): Double = when (value) {
         is Number -> toDouble()
-        is String -> toDouble()
+        is String -> value.toDoubleSafe() ?: default
         else -> default
     }
 
@@ -394,6 +393,7 @@ inline class Dyn(val value: Any?) : Comparable<Dyn> {
 
 private fun String.toIntSafe(radix: Int = 10) = this.toIntOrNull(radix)
 private fun String.toDoubleSafe() = this.toDoubleOrNull()
+private fun String.toFloatSafe() = this.toFloatOrNull()
 private fun String.toLongSafe(radix: Int = 10) = this.toLongOrNull(radix)
 private fun String.escape(): String = buildString(length) {
     for (c in this@escape) when (c) { '\n' -> append("\\n"); '\r' -> append("\\r"); '\t' -> append("\\t"); '\\' -> append("\\\\"); else -> append(c)  }
