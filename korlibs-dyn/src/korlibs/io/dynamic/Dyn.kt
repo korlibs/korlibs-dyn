@@ -282,7 +282,7 @@ inline class Dyn(val value: Any?) : Comparable<Dyn> {
         is Number -> toDouble() != 0.0
         is String -> {
             if (extraStrings) {
-                when (value.toLowerCase()) {
+                when (value.lowercase()) {
                     "", "0", "false", "NaN", "null", "undefined", "ko", "no" -> false
                     else -> true
                 }
@@ -321,7 +321,7 @@ inline class Dyn(val value: Any?) : Comparable<Dyn> {
     fun toChar(): Char = when {
         value is Char -> value
         value is String && (value.length == 1) -> value.first()
-        else -> toNumber().toChar()
+        else -> toInt().toChar()
     }
 
     fun toShort(): Short = toNumber().toShort()
