@@ -118,7 +118,7 @@ public final class korlibs/io/dynamic/Dyn$Companion {
 
 public abstract interface class korlibs/io/dynamic/Dyn$Invokable {
 	public abstract fun invoke (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
-	public abstract fun invokeOrThrow (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+	public fun invokeOrThrow (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 }
 
 public final class korlibs/io/dynamic/Dyn$Invokable$DefaultImpls {
@@ -131,14 +131,14 @@ public abstract interface class korlibs/io/dynamic/Dyn$SuspendInvokable {
 
 public abstract interface class korlibs/io/dynamic/DynApi {
 	public abstract fun get (Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-	public abstract fun getGlobal ()Ljava/lang/Object;
-	public abstract fun getOrThrow (Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+	public fun getGlobal ()Ljava/lang/Object;
+	public fun getOrThrow (Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 	public abstract fun invoke (Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
-	public abstract fun invokeOrThrow (Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+	public fun invokeOrThrow (Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 	public abstract fun set (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
-	public abstract fun suspendGet (Ljava/lang/Object;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun suspendInvoke (Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun suspendSet (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun suspendGet (Ljava/lang/Object;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun suspendInvoke (Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun suspendSet (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class korlibs/io/dynamic/DynApi$DefaultImpls {
